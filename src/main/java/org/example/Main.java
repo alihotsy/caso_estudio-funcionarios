@@ -51,6 +51,6 @@ public class Main {
         System.out.println("===========================================================");
 
         //ELIMINAR UN FUNCIONARIO
-        System.out.println(funcionarioController.deleteFuncionario(11025699));
+        System.out.println(funcionarioController.deleteFuncionario(10599876));
     }
 }

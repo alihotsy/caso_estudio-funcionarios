@@ -120,7 +120,8 @@ public class FuncionarioRepository implements FuncionarioCrudRepository {
                         ps.setInt(1,id);
                         ps.execute();
                     }catch (SQLException e){
-                        throw new Error("Algo salió mal =( "+e.getMessage());
+                        e.printStackTrace();
+                        return false;
                     }
                     return true;
                 }).orElse(false);

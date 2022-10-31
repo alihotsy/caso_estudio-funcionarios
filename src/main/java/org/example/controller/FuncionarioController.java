@@ -45,13 +45,10 @@ public class FuncionarioController {
     }
 
     public String deleteFuncionario(Integer id) {
-        try{
-            return funcionarioRepository.deleteFuncionario(id)
-                    ? "Funcionario eliminado satisfactoriamente"
-                    : "No existe ningún funcionario con ID = " + id+ " para ser eliminado";
-        }catch (Exception e){
-            return e.getMessage();
-        }
+        return funcionarioRepository.deleteFuncionario(id)
+                ? "Funcionario eliminado satisfactoriamente"
+                : "No existe ningún funcionario con ID = " + id+ " para ser eliminado" +
+                " o algo salió mal";
 
     }
 }
