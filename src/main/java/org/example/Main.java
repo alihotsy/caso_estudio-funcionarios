@@ -1,5 +1,6 @@
 package org.example;
 
+
 import org.example.controller.FuncionarioController;
 import org.example.dominio.Funcionario;
 import org.example.repository.FuncionarioRepository;
@@ -19,14 +20,14 @@ public class Main {
 
         //CREA UN FUNCIONARIO
         /*Funcionario newFuncionario = new Funcionario();
-        newFuncionario.setId(10566873);
+        newFuncionario.setId(10225669);
         newFuncionario.setTipoId("Cédula de ciudadanía");
-        newFuncionario.setNombre("Ana");
-        newFuncionario.setApellido("Jenkins");
-        newFuncionario.setEstadoCivil("Casada");
+        newFuncionario.setNombre("Jhon");
+        newFuncionario.setApellido("Wick");
+        newFuncionario.setEstadoCivil("Viudo");
         newFuncionario.setSexo('F');
         newFuncionario.setDireccion("CRA 41 # 23 A 44");
-        newFuncionario.setTelefono("52269871");
+        newFuncionario.setTelefono("4551023");
         newFuncionario.setFechaNacimiento(LocalDate.of(1993, 2,9));
 
         System.out.println("Crea un funcionario: "+funcionarioController.createFuncionario(newFuncionario));*/
@@ -37,19 +38,19 @@ public class Main {
         System.out.println("===========================================================");
         //ACTUALIZAR UN FUNCIONARIO:
         Funcionario funcionario = new Funcionario();
-        funcionario.setId(105998700);
+        funcionario.setId(10998520);
         funcionario.setTipoId("Cédula de ciudadanía");
-        funcionario.setNombre("Alejandro");
-        funcionario.setApellido("Lopera");
-        funcionario.setEstadoCivil("Soltero");
+        funcionario.setNombre("Angella");
+        funcionario.setApellido("Montoya");
+        funcionario.setEstadoCivil("Soltera");
         funcionario.setSexo('M');
         funcionario.setDireccion("CRA 32 # 20 A 66");
-        funcionario.setTelefono("32366541");
+        funcionario.setTelefono("44521032");
         funcionario.setFechaNacimiento(LocalDate.of(1998, 6,5));
-        System.out.println("Actualiza un funcionario: "+funcionarioController.updateFuncionario(funcionario,105998700));
+        System.out.println("Actualiza un funcionario: "+funcionarioController.updateFuncionario(funcionario,10225669));
         System.out.println("===========================================================");
 
         //ELIMINAR UN FUNCIONARIO
-        System.out.println(funcionarioController.deleteFuncionario(10566873));
+        System.out.println(funcionarioController.deleteFuncionario(11025699));
     }
 }

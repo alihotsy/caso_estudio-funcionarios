@@ -68,11 +68,12 @@ public class FuncionarioRepository implements FuncionarioCrudRepository {
             ps.setString(8,funcionario.getTelefono());
             ps.setDate(9,java.sql.Date.valueOf(funcionario.getFechaNacimiento()));
             ps.execute();
-
-        } catch (SQLException e){
-           throw new Error("Algo salió mal :("+e.getMessage());
+            return funcionario;
+        }  catch (Exception e){
+            e.printStackTrace();
         }
-        return funcionario;
+        return null;
+
     }
 
     @Override
@@ -98,10 +99,12 @@ public class FuncionarioRepository implements FuncionarioCrudRepository {
                         ps.setDate(9,java.sql.Date.valueOf(funcionario.getFechaNacimiento()));
                         ps.setInt(10,id);
                         ps.execute();
-                    }catch (SQLException e){
-                      throw new Error("Algo salió mal =( "+e.getMessage());
+                        return funcionario;
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                       return null;
                     }
-                    return funcionario;
+
                 });
     }
 

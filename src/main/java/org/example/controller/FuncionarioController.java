@@ -4,6 +4,7 @@ import org.example.dominio.Funcionario;
 import org.example.repository.FuncionarioRepository;
 import org.example.validations.ValidarCamposNulos;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class FuncionarioController {
@@ -19,10 +20,12 @@ public class FuncionarioController {
     }
 
     public Funcionario createFuncionario(Funcionario funcionario) {
-        if(ValidarCamposNulos.existeNulos(funcionario).isEmpty()) {
-            return funcionarioRepository.createFuncionario(funcionario);
-        }
-        throw new IllegalArgumentException(ValidarCamposNulos.existeNulos(funcionario).toString());
+
+            if(ValidarCamposNulos.existeNulos(funcionario).isEmpty()) {
+                return funcionarioRepository.createFuncionario(funcionario);
+            }
+            return null;
+
     }
 
     public String findOneById(Integer id) {
@@ -32,18 +35,23 @@ public class FuncionarioController {
     }
 
     public String updateFuncionario(Funcionario funcionario, Integer id){
-
-        if(!ValidarCamposNulos.existeNulos(funcionario).isEmpty()){
-            throw new IllegalArgumentException(ValidarCamposNulos.existeNulos(funcionario).toString());
+        if(ValidarCamposNulos.existeNulos(funcionario).isEmpty()){
+            return funcionarioRepository.updateFuncionario(funcionario,id)
+                    .map(Funcionario::toString)
+                    .orElse("No existe ningún funcionario con ID = " +id+" para ser actualizado" +
+                            " o algo salió mal");
         }
-        return funcionarioRepository.updateFuncionario(funcionario,id)
-                .map(Funcionario::toString)
-                .orElse("No existe ningún funcionario con ID = " +id+" para ser actualizado");
+        return ValidarCamposNulos.existeNulos(funcionario).toString();
     }
 
     public String deleteFuncionario(Integer id) {
-        return funcionarioRepository.deleteFuncionario(id)
-                ? "Funcionario eliminado satisfactoriamente"
-                : "No existe ningún funcionario con ID = " + id+ " para ser eliminado";
+        try{
+            return funcionarioRepository.deleteFuncionario(id)
+                    ? "Funcionario eliminado satisfactoriamente"
+                    : "No existe ningún funcionario con ID = " + id+ " para ser eliminado";
+        }catch (Exception e){
+            return e.getMessage();
+        }
+
     }
 }
