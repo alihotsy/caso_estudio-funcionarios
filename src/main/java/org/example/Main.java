@@ -38,13 +38,13 @@ public class Main {
         System.out.println("===========================================================");
         //ACTUALIZAR UN FUNCIONARIO:
         Funcionario funcionario = new Funcionario();
-        funcionario.setId(10998520);
+        funcionario.setId(1037657234);
         funcionario.setTipoId("Cédula de ciudadanía");
-        funcionario.setNombre("Angella");
-        funcionario.setApellido("Montoya");
-        funcionario.setEstadoCivil("Soltera");
+        funcionario.setNombre("Jhon");
+        funcionario.setApellido("Wick");
+        funcionario.setEstadoCivil("Viudo");
         funcionario.setSexo('M');
-        funcionario.setDireccion("CRA 32 # 20 A 66");
+        funcionario.setDireccion("CRA 58 # 120 A 66");
         funcionario.setTelefono("44521032");
         funcionario.setFechaNacimiento(LocalDate.of(1998, 6,5));
         System.out.println("Actualiza un funcionario: "+funcionarioController.updateFuncionario(funcionario,10225669));

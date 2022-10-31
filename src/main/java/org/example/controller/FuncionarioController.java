@@ -35,13 +35,14 @@ public class FuncionarioController {
     }
 
     public String updateFuncionario(Funcionario funcionario, Integer id){
-        if(ValidarCamposNulos.existeNulos(funcionario).isEmpty()){
-            return funcionarioRepository.updateFuncionario(funcionario,id)
-                    .map(Funcionario::toString)
-                    .orElse("No existe ningún funcionario con ID = " +id+" para ser actualizado" +
-                            " o algo salió mal");
+        if(!ValidarCamposNulos.existeNulos(funcionario).isEmpty()){
+            return ValidarCamposNulos.existeNulos(funcionario).toString();
         }
-        return ValidarCamposNulos.existeNulos(funcionario).toString();
+        return funcionarioRepository.updateFuncionario(funcionario,id)
+                .map(Funcionario::toString)
+                .orElse("No existe ningún funcionario con ID = " +id+" para ser actualizado" +
+                        " o algo salió mal");
+
     }
 
     public String deleteFuncionario(Integer id) {
