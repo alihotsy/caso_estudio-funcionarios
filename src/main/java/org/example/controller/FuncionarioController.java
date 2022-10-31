@@ -10,13 +10,12 @@ import java.util.List;
 public class FuncionarioController {
     private final FuncionarioRepository funcionarioRepository = new FuncionarioRepository();
 
-    public void showFuncionarios() {
+    public List<Funcionario> showFuncionarios() {
         List<Funcionario> funcionarios = funcionarioRepository.funcionarios();
         if(funcionarios.isEmpty()){
-            System.out.println("No hay funcionarios en la DB");
-        }else {
-            funcionarios.forEach(System.out::println);
+            return List.of();
         }
+        return funcionarios;
     }
 
     public Funcionario createFuncionario(Funcionario funcionario) {

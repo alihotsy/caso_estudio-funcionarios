@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         //LISTA TODOS LOS FUNCIONARIOS
         FuncionarioController funcionarioController = new FuncionarioController();
-        funcionarioController.showFuncionarios();
+        funcionarioController.showFuncionarios().forEach(System.out::println);
         System.out.println("===========================================================");
 
         //CREA UN FUNCIONARIO
@@ -34,10 +34,10 @@ public class Main {
         System.out.println("===========================================================");
 
         //BUSCA UN FUNCIONARIO POR EL ID DADO
-        System.out.println("Encuentra un funcionario por Id "+funcionarioController.findOneById(10599873));
-        System.out.println("===========================================================");
+        /*System.out.println("Encuentra un funcionario por Id "+funcionarioController.findOneById(10599873));
+        System.out.println("===========================================================");*/
         //ACTUALIZAR UN FUNCIONARIO:
-        Funcionario funcionario = new Funcionario();
+        /*Funcionario funcionario = new Funcionario();
         funcionario.setId(1037657234);
         funcionario.setTipoId("Cédula de ciudadanía");
         funcionario.setNombre("Jhon");
@@ -48,9 +48,9 @@ public class Main {
         funcionario.setTelefono("44521032");
         funcionario.setFechaNacimiento(LocalDate.of(1998, 6,5));
         System.out.println("Actualiza un funcionario: "+funcionarioController.updateFuncionario(funcionario,10225669));
-        System.out.println("===========================================================");
+        System.out.println("===========================================================");*/
 
         //ELIMINAR UN FUNCIONARIO
-        System.out.println(funcionarioController.deleteFuncionario(10599876));
+        /*System.out.println(funcionarioController.deleteFuncionario(10599876));*/
     }
 }
