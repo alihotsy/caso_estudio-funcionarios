@@ -12,14 +12,11 @@ public class FuncionarioController {
 
     public List<Funcionario> showFuncionarios() {
         List<Funcionario> funcionarios = funcionarioRepository.funcionarios();
-        if(funcionarios.isEmpty()){
-            return List.of();
-        }
+        
         return funcionarios;
     }
 
     public Funcionario createFuncionario(Funcionario funcionario) {
-
             if(ValidarCamposNulos.existeNulos(funcionario).isEmpty()) {
                 return funcionarioRepository.createFuncionario(funcionario);
             }
@@ -31,24 +28,20 @@ public class FuncionarioController {
         return funcionarioRepository.findOne(id)
                 .map(Funcionario::toString)
                 .orElse("No se encontró este funcionario con ID = " +id);
+
     }
 
-    public String updateFuncionario(Funcionario funcionario, Integer id){
+    public boolean updateFuncionario(Funcionario funcionario, Integer id){
         if(!ValidarCamposNulos.existeNulos(funcionario).isEmpty()){
-            return ValidarCamposNulos.existeNulos(funcionario).toString();
+            return false;
         }
         return funcionarioRepository.updateFuncionario(funcionario,id)
-                .map(Funcionario::toString)
-                .orElse("No existe ningún funcionario con ID = " +id+" para ser actualizado" +
-                        " o algo salió mal");
+                .map(funcionarioUpdated -> true)
+                .orElse(false);
 
     }
 
-    public String deleteFuncionario(Integer id) {
-        return funcionarioRepository.deleteFuncionario(id)
-                ? "Funcionario eliminado satisfactoriamente"
-                : "No existe ningún funcionario con ID = " + id+ " para ser eliminado" +
-                " o algo salió mal";
-
+    public boolean deleteFuncionario(Integer id) {
+        return funcionarioRepository.deleteFuncionario(id);
     }
 }

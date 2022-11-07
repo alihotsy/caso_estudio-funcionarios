@@ -25,6 +25,7 @@ public class FuncionarioRepository implements FuncionarioCrudRepository {
     public List<Funcionario> funcionarios() {
         List<Funcionario> funcionarios = new ArrayList<>();
         String sqlQuery = "SELECT * FROM funcionarios";
+
         try(
                 Connection connection = dataSource.getConnection();
                 PreparedStatement ps = connection.prepareStatement(sqlQuery);
@@ -32,7 +33,7 @@ public class FuncionarioRepository implements FuncionarioCrudRepository {
                 ){
             while (rs.next()){
                 Funcionario funcionario = new Funcionario();
-                funcionario.setId(rs.getInt("id_funcionario"));
+                funcionario.setId(rs.getInt("id_funcionario")); //1037657237
                 funcionario.setTipoId(rs.getString("tipo_id"));
                 funcionario.setNombre(rs.getString("nombre"));
                 funcionario.setApellido(rs.getString("apellidos"));

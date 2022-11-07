@@ -12,6 +12,7 @@ public interface FuncionarioCrudRepository {
 
     Optional<Funcionario> updateFuncionario(Funcionario funcionario, Integer id);
 
+
     boolean deleteFuncionario(Integer id);
 
     Optional<Funcionario> findOne(Integer id);
